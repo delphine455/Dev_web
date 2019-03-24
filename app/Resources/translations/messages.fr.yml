@@ -1,0 +1,36 @@
+'title' : titre
+'useredit' : éditer utilisateur
+'backlist' : retour à la liste
+'id' : id
+'nom' : nom
+'prenom' : prénom
+'dateNaissance' : date de naissance
+'email' : email
+'role' : role
+'competences' : compétences
+'action' : action
+'show' : affiche
+'newuser' : créer un nouveau utilisateur
+'createuser' : creation utilisateur
+'user' : utilisateur
+'tach' : tâche
+'description' : description
+'datedebut' : date de début
+'datefin' : date de fin
+'daterealisation' : date de realisation
+'etat' : etat
+'tachcreation' : créer tâche
+'delete' : supprimer
+'create' : créer
+'userlist' : liste d'utilisateurs
+'edit' : editer
+'tachlist' : liste des tâches
+'edittach' : editer tâche
+'editprojet' : editer un projet
+'client' : client
+'createprojet' : creation projet
+'createnewprojet' : créer un nouveau projet
+'createnewtach' : créer une nouvelle tâche
+'projectlist' : liste des projets
+
+

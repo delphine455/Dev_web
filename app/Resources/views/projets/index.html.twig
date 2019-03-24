@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <input id="myInput" type="text" placeholder="Filtrer ..." width="50">
+    <h1>{{ 'projectlist'|trans }}</h1>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>{{ 'id'|trans }}</th>
+                <th>{{ 'nom'|trans }}</th>
+                <th>{{ 'description'|trans }}</th>
+                <th>{{ 'datedebut'|trans }}</th>
+                <th>{{ 'datefin'|trans }}</th>
+                <th>{{ 'client'|trans }}</th>
+                <th>{{ 'action'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody  id="myTable">
+        {% for projet in projets %}
+            <tr>
+                <td><a href="{{ path('projets_show', { 'id': projet.id }) }}">{{ projet.id }}</a></td>
+                <td>{{ projet.nom }}</td>
+                <td>{{ projet.description }}</td>
+                <td>{% if projet.dateDebut %}{{ projet.dateDebut|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if projet.dateFin %}{{ projet.dateFin|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ projet.client }}</td>
+                <td>
+                    <ul>
+                        <li class="btn btn-dark">
+                            <a href="{{ path('projets_show', { 'id': projet.id }) }}">{{ 'show'|trans }}</a>
+                        </li>
+                        <li class="btn btn-light">
+                            <a href="{{ path('projets_edit', { 'id': projet.id }) }}">{{ 'edit'|trans }}</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li class="btn btn-warning">
+            <a href="{{ path('projets_new') }}">{{ 'createnewprojet'|trans }}</a>
+        </li>
+    </ul>
+</div>
+
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+{% endblock %}

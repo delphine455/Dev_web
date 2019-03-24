@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+    {{ form_start(edit_form) }}
+    {{ form_widget(edit_form) }}
+    <li>
+    <input type="submit" class="btn btn-info" value="{{ 'edit'|trans }}" />
+    </li>
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li class="btn btn-light">
+            <a href="{{ path('users_index') }}"> {{ 'backlist'|trans }} </a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+            <input type="submit"  class="btn btn-danger" value="{{ 'delete'|trans }}">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+    </div>
+{% endblock %}

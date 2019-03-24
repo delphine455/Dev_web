@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <input id="myInput" type="text" placeholder="Filtrer ..." width="50">
+    <h1>{{ 'tachlist'|trans }}</h1>
+
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>{{ 'id'|trans }}</th>
+                <th>{{ 'nom'|trans }}</th>
+                <th>{{ 'description'|trans }}</th>
+                <th>{{ 'datedebut'|trans }}</th>
+                <th>{{ 'datefin'|trans }}</th>
+                <th>{{ 'daterealisation'|trans }}</th>
+                <th>{{ 'etat'|trans }}</th>
+                <th>{{ 'action'|trans }}</th>
+            </tr>
+        </thead>
+        <tbody id="myTable">
+        {% for tach in taches %}
+            <tr>
+                <td><a href="{{ path('taches_show', { 'id': tach.id }) }}">{{ tach.id }}</a></td>
+                <td>{{ tach.nom }}</td>
+                <td>{{ tach.description }}</td>
+                <td>{% if tach.dateDebut %}{{ tach.dateDebut|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if tach.dateFin %}{{ tach.dateFin|date('Y-m-d') }}{% endif %}</td>
+                <td>{% if tach.dateRealisation %}{{ tach.dateRealisation|date('Y-m-d') }}{% endif %}</td>
+                <td>{{ tach.etat }}</td>
+                <td>
+                    <ul>
+                        <li class="btn btn-dark">
+                            <a href="{{ path('taches_show', { 'id': tach.id }) }}">{{ 'show'|trans }}</a>
+                        </li>
+                        <li class="btn btn-light">
+                            <a href="{{ path('taches_edit', { 'id': tach.id }) }}">{{ 'edit'|trans }}</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li class="btn btn-warning">
+            <a href="{{ path('taches_new') }}">{{ 'createnewtach'|trans }}</a>
+        </li>
+    </ul>
+</div>
+
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+{% endblock %}

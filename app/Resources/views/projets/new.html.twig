@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+<div class="container">
+    <h1>{{ 'createprojet'|trans }}</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="{{ 'create'|trans }}" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li class="btn btn-light">
+            <a href="{{ path('projets_index') }}">{{ 'backlist'|trans }}</a>
+        </li>
+    </ul>
+</div>
+{% endblock %}

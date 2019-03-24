@@ -1,0 +1,34 @@
+'title' : title
+'useredit' : edit user
+'backlist' : back to list
+'id' : id
+'nom' : name
+'prenom' : first name
+'dateNaissance' : birth date
+'email' : email
+'role' : role
+'competences' : skills
+'action' : action
+'show' : show
+'newuser' : create new user
+'createuser' : create user
+'user' : users
+'tach' : task
+'description' : description
+'datedebut' : start date
+'datefin' : end date
+'daterealisation' : date of completion
+'etat' : state
+'tachcreation' : create task
+'delete' : delete
+'create' : create
+'userlist' : liste of users
+'edit' : edit
+'tachlist' : liste of tasks
+'edittach' : edit a task
+'editprojet' : edit a projet
+'client' : customer
+'createprojet' : create projet
+'createnewprojet' : create new projet
+'createnewtach' : create new task
+'projectlist' : list of projects

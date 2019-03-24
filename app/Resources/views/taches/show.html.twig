@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+<div class="container">
+    <h1> {{ 'tach'|trans }} </h1>
+
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th> {{ 'id'|trans }} </th>
+                <td>{{ tach.id }}</td>
+            </tr>
+            <tr>
+                <th> {{ 'nom'|trans }} </th>
+                <td>{{ tach.nom }}</td>
+            </tr>
+            <tr>
+                <th> {{ 'description'|trans }} </th>
+                <td>{{ tach.description }}</td>
+            </tr>
+            <tr>
+                <th> {{ 'datedebut'|trans }} </th>
+                <td>{% if tach.dateDebut %}{{ tach.dateDebut|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th> {{ 'datefin'|trans }} </th>
+                <td>{% if tach.dateFin %}{{ tach.dateFin|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th> {{ 'daterealisation'|trans }} </th>
+                <td>{% if tach.dateRealisation %}{{ tach.dateRealisation|date('Y-m-d') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th> {{ 'etat'|trans }} </th>
+                <td>{{ tach.etat }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li class="btn btn-success">
+            <a href="{{ path('taches_index') }}"> {{ 'backlist'|trans }} </a>
+        </li>
+        <li class="btn btn-light">
+            <a href="{{ path('taches_edit', { 'id': tach.id }) }}"> {{ 'edit'|trans }} </a>
+        </li>
+        <li class="btn btn-link">
+            {{ form_start(delete_form) }}
+                <input type="submit" value="{{ 'delete'|trans }}">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+</div>
+{% endblock %}
